@@ -6,7 +6,7 @@ import re
 converter = Tk()
 converter.title("Currency Converter")
 converter.geometry("800x600")
-converter.configure(background='light blue')
+converter.configure(background='#b8cadc')
 photo = PhotoImage(file=r"C:\Users\Mihoc\OneDrive\Desktop\1.png")
 
 def extractData():
@@ -32,8 +32,8 @@ def extractData():
                 data.append(row.text)
     i = 2
     while i <= len(data):
-        data[i] = 0;
-        data[i + 1] = 0;
+        data[i] = 0
+        data[i + 1] = 0
         i = i + 4
 
     for i in data:
@@ -49,51 +49,56 @@ def extractData():
 
 
 
-
 def Conversie():
-    return 0
+  return 0
 def clear_all():
     return 0
 
+
+
+
 if __name__ == "__main__":
     data,data_curs=extractData()
-    nume = Label(converter, text="Convertor Valutar", font=("arial", 25, "bold"), fg="red")
-    nume.place(x=250, y=10)
-    data_azi= Label(converter, text=data_curs, font=("arial", 20, "bold"), fg="red")
-    data_azi.place(x=310, y=58)
+    nume = Label(converter, text="Convertor Valutar", font=("arial", 25, "bold"), fg="black",bg="#a884fb")
+    nume.place(x=270, y=10)
+    data_azi= Label(converter, text=data_curs, font=("arial", 20, "bold"), fg="black",bg="#a884fb")
+    data_azi.place(x=340, y=58)
     data["RON"]=0
 
 
 
 
-    Suma = Entry(converter, font=("arial", 20))
-    Suma.place(x=250, y=120)
-    text1 = Label(converter, text="Suma:", font = ("arial", 10, "bold"), fg ="red",bg="light blue")
-    text1.place(x=180, y=120)
+    Suma= Entry(converter, font=("arial", 20))
+    Suma.place(x=260, y=120)
+    text1 = Label(converter, text="Suma:", font = ("arial", 20, "bold"), fg ="black",bg="#8080ff")
+    text1.place(x=140, y=120)
 
     Rezultat = Text(converter, height=2, width=42, font=("arial", 10, "bold"), bd=5)
-    Rezultat.place(x=250, y=500)
-
+    Rezultat.place(x=260, y=500)
+    text2 = Label(converter, text="Rezultat:", font=("arial", 20, "bold"), fg="black", bg="#8080ff")
+    text2.place(x=348, y=450)
 
     variable1 = StringVar(converter)
     variable1.set(None)
     variante_monede1 = OptionMenu(converter, variable1, *data)
-    variante_monede1.place(x=290, y=170, width=200, height=40)
-    text3 = Label(converter, text="Schimba din:", font=("arial", 10, "bold"), fg="red",bg="light blue")
-    text3.place(x=140, y=180)
+    variante_monede1.place(x=310, y=180, width=200, height=42)
+    text3 = Label(converter, text="Schimba din:", font=("arial", 19, "bold"), fg="black",bg="#8080ff")
+    text3.place(x=100, y=180)
 
     variable2 = StringVar(converter)
     variable2.set(None)
     variante_monede2 = OptionMenu(converter, variable2, *data)
-    variante_monede2.place(x=290, y=220, width=200, height=40)
-    text4 = Label(converter, text="In:", font=("arial", 10, "bold"), fg="red", bg="light blue")
-    text4.place(x=140, y=230)
+    variante_monede2.place(x=310, y=230, width=200, height=42)
+    text4 = Label(converter, text="În:", font=("arial", 17, "bold"), fg="black", bg="#8080ff")
+    text4.place(x=100, y=230)
 
     button1 = Button(converter, text="Convert", fg="black", font="arial", bg="powder blue", command=Conversie)
-    button1.place(x=300, y=310, height=40, width=150)
+    button1.place(x=335, y=310, height=40, width=150)
 
     button2 = Button(converter, text="Clear", fg="black", font="arial", bg="light blue", command=clear_all)
-    button2.place(x=300, y=350, height=40, width=150)
+    button2.place(x=335, y=350, height=40, width=150)
+
+
 
 
 
