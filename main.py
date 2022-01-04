@@ -50,9 +50,22 @@ def extractData():
 
 
 def Conversie():
-  return 0
+    price = Suma.get()
+    answer1 = variable1.get()
+    answer2 = variable2.get()
+    if answer1!="RON" and answer2=="RON":
+        DICT = data.get(answer1)
+        converted = round(float(price)*float(DICT))
+        Rezultat.insert(INSERT,"Prețul în ",INSERT,'RON',INSERT," = ",INSERT,converted)
+        Rezultat.insert(END,'\n')
+    if answer2!="RON" and answer1=="RON":
+        DICT = data.get(answer2)
+        converted = round(float(price)/float(DICT))
+        Rezultat.insert(INSERT,"Prețul în ",INSERT,answer2,INSERT," = ",INSERT,converted)
+        Rezultat.insert(END, '\n')
 def clear_all():
-    return 0
+    Suma.delete(0, END)
+    Rezultat.delete(1.0, END)
 
 
 
@@ -97,10 +110,5 @@ if __name__ == "__main__":
 
     button2 = Button(converter, text="Clear", fg="black", font="arial", bg="light blue", command=clear_all)
     button2.place(x=335, y=350, height=40, width=150)
-
-
-
-
-
 
     converter.mainloop()
